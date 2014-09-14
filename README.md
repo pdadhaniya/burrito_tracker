@@ -1,0 +1,1 @@
+Making a burrito tracker using ruby, HTML, and postgreSQL in order to reinforce the concepts learned in MakerSquare during Week 2 and Week 3.
