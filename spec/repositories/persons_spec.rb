@@ -23,5 +23,13 @@ describe BurritoTracker::Repositories::PersonsRepo do
     end
   end
 
+  describe "#delete_person" do
+    it "should remove a person from the persons table" do
+      BurritoTracker.persons_repo.save_person(person1)
+      result = BurritoTracker.persons_repo.delete_person(person1)
+      expect(result.entries).to eq([])
+    end
+  end
+
 
 end
