@@ -38,8 +38,8 @@ end
 
 
 require_relative 'burrito_tracker/entities/person.rb'
-# require_relative 'burrito_tracker/entities/burrito.rb'
-# require_relative 'burrito_tracker/entities/restaurant.rb'
+require_relative 'burrito_tracker/entities/burrito.rb'
+require_relative 'burrito_tracker/entities/restaurant.rb'
 # require_relative 'burrito_tracker/repositories/persons.rb'
 # require_relative 'burrito_tracker/repositories/burritos.rb'
 # require_relative 'burrito_tracker/repositories/restaurants.rb'
