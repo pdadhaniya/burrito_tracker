@@ -1,10 +1,10 @@
 #Refer to this class as BurritoTracker::Person
 module BurritoTracker
   class Person
-    attr_reader :name
+    attr_reader :first_name
 
     def initialize(params)
-      @name = params[:name]
+      @first_name = params[:first_name]
     end
 
   end
