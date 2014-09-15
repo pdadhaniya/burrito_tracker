@@ -6,7 +6,7 @@ module BurritoTracker
 
     def initialize(params)
       @first_name = params[:first_name]
-      @id = params[:id].to_i
+      @id = id
     end
 
   end
