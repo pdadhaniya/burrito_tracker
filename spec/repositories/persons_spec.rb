@@ -5,12 +5,12 @@ describe BurritoTracker::Repositories::PersonsRepo do
 
   before(:each) do
     # BurritoTracker.persons_burritos_restaurants_repo.drop_tables
-    # BurritoTracker.restaurants_repo.drop_tables
-    # BurritoTracker.burritos_repo.drop_tables
+    BurritoTracker.restaurants_repo.drop_tables
+    BurritoTracker.burritos_repo.drop_tables
     BurritoTracker.persons_repo.drop_tables
     BurritoTracker.persons_repo.create_tables
-    # BurritoTracker.burritos_repo.create_tables
-    # BurritoTracker.restaurants_repo.create_tables
+    BurritoTracker.burritos_repo.create_tables
+    BurritoTracker.restaurants_repo.create_tables
     # BurritoTracker.persons_burritos_restaurants_repo.create_tables
   end
 

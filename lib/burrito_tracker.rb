@@ -10,13 +10,13 @@ module BurritoTracker
     @persons_repo
   end
 
-  # def self.burritos_repo=(y)
-  #   @burritos_repo = y
-  # end
+  def self.burritos_repo=(y)
+    @burritos_repo = y
+  end
 
-  # def self.burritos_repo
-  #   @burritos_repo
-  # end
+  def self.burritos_repo
+    @burritos_repo
+  end
 
   # def self.restaurants_repo=(x)
   #   @restaurants_repo = x
@@ -46,6 +46,6 @@ require_relative 'burrito_tracker/repositories/restaurants.rb'
 require_relative 'burrito_tracker/repositories/persons_burritos_restaurants.rb'
 
 BurritoTracker.persons_repo = BurritoTracker::Repositories::PersonsRepo.new
-# BurritoTracker.burritos_repo = BurritoTracker::Repositories::BurritosRepo.new
+BurritoTracker.burritos_repo = BurritoTracker::Repositories::BurritosRepo.new
 # BurritoTracker.restaurants_repo = BurritoTracker::Repositories::Restaurants.new
 # BurritoTracker.persons_burritos_restaurants = BurritoTracker::Repositories::PersonsBurritosRestaurants.new
