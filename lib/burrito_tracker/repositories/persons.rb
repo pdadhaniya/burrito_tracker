@@ -28,6 +28,13 @@ module BurritoTracker
         end
       end
 
+      def delete_person(person)
+        command = <<-SQL
+        DELETE FROM persons WHERE id='#{person.id}';
+        SQL
+        result = @db.exec(command)
+      end
+
       def create_tables
         command = <<-SQL
         CREATE TABLE IF NOT EXISTS persons (id SERIAL PRIMARY KEY, first_name TEXT);
