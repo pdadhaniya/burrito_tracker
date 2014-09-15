@@ -41,7 +41,7 @@ describe BurritoTracker::Repositories::PersonsRepo do
   end
 
   describe "get_person" do
-    xit "should return the person based on the requested id" do
+    it "should return the person based on the requested id" do
       BurritoTracker.persons_repo.save_person(person1)
       result = BurritoTracker.persons_repo.get_person(1)
       expect(result["first_name"]).to eq("Parag")

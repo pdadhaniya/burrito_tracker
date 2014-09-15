@@ -35,6 +35,13 @@ module BurritoTracker
         result = @db.exec(command)
       end
 
+      def get_person(id)
+        command = <<-SQL
+        SELECT * FROM persons WHERE id='#{id}';
+        SQL
+        result = @db.exec(command).first
+      end
+
       def create_tables
         command = <<-SQL
         CREATE TABLE IF NOT EXISTS persons (id SERIAL PRIMARY KEY, first_name TEXT);
