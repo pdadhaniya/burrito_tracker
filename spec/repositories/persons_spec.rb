@@ -16,12 +16,20 @@ describe BurritoTracker::Repositories::PersonsRepo do
 
   describe "#save_person" do
     it "should save a person to the persons table" do
-      binding.pry
       result = BurritoTracker.persons_repo.save_person(person1)
       expect(result["first_name"]).to eq("Parag")
       expect(result["id"]).to eq("1")
       expect(person1.id).to eq(1)
     end
+
+    it "should update a persons name if they are already in the persons table" do
+      BurritoTracker.persons_repo.save_person(person1)
+      person1.first_name = "Peng"
+      result = BurritoTracker.persons_repo.save_person(person1)
+      expect(result["first_name"]).to eq("Peng")
+      expect(result["id"]).to eq("1")
+    end
+
   end
 
   describe "#delete_person" do

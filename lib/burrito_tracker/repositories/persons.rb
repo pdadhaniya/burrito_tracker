@@ -21,7 +21,8 @@ module BurritoTracker
         else
           command = <<-SQL
           UPDATE persons SET ( first_name ) = ( '#{person.first_name}' )
-          WHERE id='#{person.id}';
+          WHERE id='#{person.id}'
+          RETURNING *;
           SQL
           result = @db.exec(command).first
         end
