@@ -50,15 +50,15 @@ describe BurritoTracker::Repositories::PersonsRepo do
   end
 
   describe "get_all_persons" do
-    xit "should return all people from the persons table" do
+    it "should return all people from the persons table" do
       person2 = BurritoTracker::Person.new(first_name: "Peng")
       BurritoTracker.persons_repo.save_person(person1)
       BurritoTracker.persons_repo.save_person(person2)
       result = BurritoTracker.persons_repo.get_all_persons
       expect(result[0]["id"]).to eq("1")
       expect(result[0]["first_name"]).to eq("Parag")
-      expect(result[0]["id"]).to eq("2")
-      expect(result[0]["first_name"]).to eq("Peng")
+      expect(result[1]["id"]).to eq("2")
+      expect(result[1]["first_name"]).to eq("Peng")
     end
   end
 
