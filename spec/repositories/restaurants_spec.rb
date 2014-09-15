@@ -14,14 +14,14 @@ describe BurritoTracker::Repositories::RestaurantsRepo do
   end
 
   describe "#save_restaurant" do
-    xit "should save a restaurant to the restaurants table" do
+    it "should save a restaurant to the restaurants table" do
       result = BurritoTracker.restaurants_repo.save_restaurant(restaurant1)
-      expect(result["type"]).to eq("Papalote")
+      expect(result["name"]).to eq("Papalote")
       expect(result["id"]).to eq("1")
       expect(restaurant1.id).to eq(1)
     end
 
-    xit "should update a restaurant's name if it is already in the restaurants table" do
+    it "should update a restaurant's name if it is already in the restaurants table" do
       BurritoTracker.restaurants_repo.save_restaurant(restaurant1)
       restaurant1.name = "Chipotle"
       result = BurritoTracker.restaurants_repo.save_restaurant(restaurant1)
@@ -31,7 +31,7 @@ describe BurritoTracker::Repositories::RestaurantsRepo do
   end
 
   describe "#delete_restaurant" do
-    xit "should remove a restaurant from the restaurants table" do
+    it "should remove a restaurant from the restaurants table" do
       BurritoTracker.restaurants_repo.save_restaurant(restaurant1)
       result = BurritoTracker.restaurants_repo.delete_restaurant(restaurant1)
       expect(result.entries).to eq([])
@@ -39,24 +39,24 @@ describe BurritoTracker::Repositories::RestaurantsRepo do
   end
 
   describe "#get_restaurant" do
-    xit "should return a restaurant based on the requested id" do
+    it "should return a restaurant based on the requested id" do
       BurritoTracker.restaurants_repo.save_restaurant(restaurant1)
       result = BurritoTracker.restaurants_repo.get_restaurant(1)
-      expect(result["type"]).to eq("Papalote")
+      expect(result["name"]).to eq("Papalote")
       expect(result["id"]).to eq("1")
     end
   end
 
   describe "#get_all_restaurants" do
-    xit "should return all restaurants from the restaurants table" do
-      restaurant2 = BurritoTracker::Restaurant.new(type: "Chipotle")
+    it "should return all restaurants from the restaurants table" do
+      restaurant2 = BurritoTracker::Restaurant.new(name: "Chipotle")
       BurritoTracker.restaurants_repo.save_restaurant(restaurant1)
       BurritoTracker.restaurants_repo.save_restaurant(restaurant2)
-      result = BurritoTracker.restaurant_repo.get_all_restaurants
+      result = BurritoTracker.restaurants_repo.get_all_restaurants
       expect(result[0]["id"]).to eq("1")
-      expect(result[0]["type"]).to eq("Papalote")
+      expect(result[0]["name"]).to eq("Papalote")
       expect(result[1]["id"]).to eq("2")
-      expect(result[1]["type"]).to eq("Chipotle")
+      expect(result[1]["name"]).to eq("Chipotle")
     end
   end
 

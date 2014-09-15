@@ -2,10 +2,11 @@
 module BurritoTracker
   class Restaurant
 
-    attr_reader :name
+    attr_accessor :name, :id
 
     def initialize(params)
       @name = params[:name]
+      @id = id
     end
 
 

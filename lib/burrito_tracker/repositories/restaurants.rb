@@ -11,7 +11,7 @@ module BurritoTracker
       def save_restaurant(restaurant)
         if restaurant.id.nil?
           command = <<-SQL
-          INSERT INTO restaurant ( name )
+          INSERT INTO restaurants ( name )
           VALUES ( '#{restaurant.name}' )
           RETURNING *;
           SQL
@@ -20,7 +20,7 @@ module BurritoTracker
           result
         else
           command = <<-SQL
-          UPDATE restaurants SET ( name ) = ( '#{restaurant.type}' )
+          UPDATE restaurants SET ( name ) = ( '#{restaurant.name}' )
           WHERE id='#{restaurant.id}'
           RETURNING *;
           SQL
