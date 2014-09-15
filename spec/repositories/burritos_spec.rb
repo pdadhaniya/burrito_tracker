@@ -19,6 +19,14 @@ describe BurritoTracker::Repositories::BurritosRepo do
       expect(result["id"]).to eq("1")
       expect(burrito1.id).to eq(1)
     end
+
+    xit "should update a burrito's type if it is already in the burritos table" do
+      BurritoTracker.burritos_repo.save_burrito(burrito1)
+      burrito1.type = "Veggie"
+      result = BurritoTracker.burritos_repo.save_burrito(burrito1)
+      expect(result["type"]).to eq("Veggie")
+      expect(result["id"]).to eq("1")
+    end
   end
 
   describe "#delete_burrito" do
